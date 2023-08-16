@@ -3,7 +3,7 @@ FROM python:3-alpine
 
 RUN  addgroup -S tocos && adduser -S tocos -G tocos
 
-USER tocos
+
 
 # Set work directory
 WORKDIR /usr/src/app
@@ -22,6 +22,8 @@ RUN pip install -r  /usr/src/app/requirements.txt
 
 # copy project
 COPY --chown=tocos:tocos ./tocos-api/*.py /usr/src/app/
+
+USER tocos
 
 # Run it
 CMD ["gunicorn"  , "-b", "0.0.0.0:8300", "tocos-credits:app"]
