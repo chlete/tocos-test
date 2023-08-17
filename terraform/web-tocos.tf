@@ -5,7 +5,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids      = [aws_security_group.tocos-security_group.id]
   associate_public_ip_address = true
   key_name = "pepino"
-  ser_data = <<-EOL
+  user_data = <<-EOL
   #!/bin/bash -xe
 
    apt update
