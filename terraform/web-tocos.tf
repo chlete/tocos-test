@@ -1,6 +1,9 @@
 resource "aws_instance" "web" {
   ami           = "ami-df5de72bdb3b" #localstack docker image; when in aws use minimal amazon linux image
   instance_type = "t2.micro"
+  subnet_id                   = aws_subnet.tocos-public_subnet.id
+  vpc_security_group_ids      = [aws_security_group.tocos-security_group.id]
+  associate_public_ip_address = true
 
   tags = {
     Name = "Tocos-web"
@@ -9,7 +12,7 @@ resource "aws_instance" "web" {
 
 provider "aws" {
   region                      = "us-east-1"
-  s3_force_path_style         = true
+  #s3_force_path_style         = true
   skip_credentials_validation = true
   skip_metadata_api_check     = true
   skip_requesting_account_id  = true
