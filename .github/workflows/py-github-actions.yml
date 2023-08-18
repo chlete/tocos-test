@@ -24,7 +24,7 @@ jobs:
 
       - name: Run tests
         run: |
-          python unit-test.py
+          python tocos-api/unit-test.py
 
   deploy:
     name: Deploy to Production
