@@ -23,6 +23,10 @@ jobs:
       - name: Run tests
         run: |
           python tocos-api/unit-test.py
+          - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: |
+           docker build . --file Dockerfile --tag tocos-web:$(date +%s)
 
   deploy:
     name: Deploy to Production
@@ -44,6 +48,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Deploy to Production
+      - name: Deploy
         run: |
           # Add deployment steps here (e.g., uploading to a server or cloud platform)
