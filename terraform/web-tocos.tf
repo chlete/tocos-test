@@ -4,7 +4,7 @@ resource "aws_instance" "web" {
   subnet_id                   = aws_subnet.tocos-public_subnet.id
   vpc_security_group_ids      = [aws_security_group.tocos-security_group.id]
   associate_public_ip_address = true
-  key_name = "pepino"
+  #key_name = "pepino"
   user_data = <<-EOL
   #!/bin/bash -xe
 

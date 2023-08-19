@@ -26,4 +26,4 @@ COPY --chown=tocos:tocos ./tocos-api/*.py /usr/src/app/
 USER tocos
 
 # Run it
-CMD ["gunicorn"  , "-b", "0.0.0.0:8300", "tocos-credits:app"]
+CMD ["gunicorn"  , "-b", "0.0.0.0:8300", "tocoscredits:app"]
