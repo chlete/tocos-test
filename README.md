@@ -38,6 +38,31 @@ First, run the terraform script:
 
 `cd terraform && tflocal init && tflocal plan && tflocal apply`
 
+This will take some time, as updates will run on the container as well the retrieval of prometheus and grafana images.
+
+Verification
+
+Microservice:
+
+http://localhost:8300/user
+
+Grafana:
+
+http://localhost:3000
+
+Access: admin/admin
+
+Todo: automate the configuration of prometheus as a datasource. At this point must be manually added the datasource by choosing "Prometheus" and using as url: http://host.docker.internal:9090.
+
+CICD:
+Defined in the Github/workflows/py-github-actions. 
+Requires a Docker hub account.
+Just push the code and a container image will be created and pushed into the registry.
+To improve: container binary signature, to ensure safety of provenance of the code.
+
+
+
+
 
 
 
