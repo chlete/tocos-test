@@ -33,7 +33,9 @@ pip install terraform-local
 
 # How to run it
 Assumptions: localstack is running.
-First, run the terraform script
+
+First, run the terraform script:
+
 `cd terraform && tflocal init && tflocal plan && tflocal apply`
 
 
