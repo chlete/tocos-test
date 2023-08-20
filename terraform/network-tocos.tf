@@ -1,5 +1,6 @@
 # Create one VPC, two subnets (public and private) and security group.
-# No DB is considered, however, if needed, another subnet is available for that purpose.
+# The private subnet, has no internet access. It is for the sake of correctness included. Not used in this excercise.
+# In the private zone, a DB would be placed there connecting to the webserver on the public subnet.
 
 
 # VPC
@@ -15,7 +16,6 @@ resource "aws_vpc" "backbone" {
 
 
 # Subnet
-
 resource "aws_subnet" "tocos-public_subnet" {
  vpc_id     = aws_vpc.backbone.id
  cidr_block = var.public_subnet
@@ -37,7 +37,6 @@ resource "aws_subnet" "tocos-private_subnet" {
 
 
 # Internet gateway
-
 resource "aws_internet_gateway" "tocos-gw" {
  vpc_id = aws_vpc.backbone.id
  
@@ -52,11 +51,25 @@ resource "aws_security_group" "tocos-security_group" {
   name         = "Tocos Security Group"
   description  = "Tocos Security Group"
   
-  # allow ingress of port 22
+  # allow ingress of port 8300 / my service
   ingress {
     cidr_blocks = var.ingress-network
-    from_port   = 80
-    to_port     = 80
+    from_port   = 8300
+    to_port     = 8300
+    protocol    = "tcp"
+  } 
+  # allow ingress to ssh
+  ingress {
+    cidr_blocks = var.ingress-network
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+  } 
+  # allow ingress to grafana
+  ingress {
+    cidr_blocks = var.ingress-network
+    from_port   = 3000
+    to_port     = 3000
     protocol    = "tcp"
   } 
   

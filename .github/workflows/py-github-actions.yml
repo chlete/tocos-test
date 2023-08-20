@@ -68,3 +68,5 @@ jobs:
       - name: Deploy
         run: |
           # Add deployment steps here (e.g., uploading to a server or cloud platform)
+          echo "Deployment should be here", since localstack doesnt expose publicly, it will be "mocked"
+          # ssh or kubectl depending on the case for single container or docker standalone
