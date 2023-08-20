@@ -23,13 +23,13 @@ pip install terraform-local
 - Development: The developer will push the code and trigger a github action, which will trigger unit tests and later build, and push the image to the Docker Hub registry.
 
 # Directory structure
-Dockerfile how the image of the microservice should be built.
+**Dockerfile** how the image of the microservice should be built.
 
-scripts/ contains `setup-prometheus-grafana.sh` the installation script for prometheus and grafana, as containers. This file is located on the web, which is retrieved on the installation step. Additionally, there is a definition of `docker-dashboard-grafana.json` used for the Grafana dashboard.
+**scripts/** Contains `setup-prometheus-grafana.sh` the installation script for prometheus and grafana, as containers. This file is located on the web, which is retrieved on the installation step. Additionally, there is a definition of `docker-dashboard-grafana.json` used for the Grafana dashboard.
 
-terraform/ contains the scripts that set up the infrastructure.
+**terraform/** Contains the scripts that set up the infrastructure.
 
-tocos-api/ source of the microservice along with the unit test.
+**tocos-api/** Source of the microservice along with the unit test.
 
 # How to run it
 Assumptions: localstack is running.
