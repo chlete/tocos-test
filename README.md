@@ -28,24 +28,7 @@ pip install terraform-local
 
 # Directory structure
 
-.
-├── Dockerfile
-├── README.md
-├── prometheus.yml
-├── requirements.txt
-├── scripts
-│   ├── docker-dashboard-grafana.json
-│   └── setup-prometheus-grafana.sh
-├── terraform
-│   ├── network-tocos.tf
-│   ├── terraform.tfstate
-│   ├── terraform.tfstate.backup
-│   ├── variables.tf
-│   └── web-tocos.tf
-└── tocos-api
-    ├── requirements.txt
-    ├── tocoscredits.py
-    └── unit-test.py
+
 
 
 
