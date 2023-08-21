@@ -25,6 +25,8 @@ pip install terraform-local
 # Directory structure
 **Dockerfile** how the image of the microservice should be built.
 
+**monitoring** contains the files needed for configuring prometheus and the Grafana's docker dashboard definition.
+
 **scripts/** Contains `setup-prometheus-grafana.sh` the installation script for prometheus and grafana, as containers. This file is located on the web, which is retrieved on the installation step. Additionally, there is a definition of `docker-dashboard-grafana.json` used for the Grafana dashboard.
 
 **terraform/** Contains the scripts that set up the infrastructure.
