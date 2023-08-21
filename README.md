@@ -54,6 +54,8 @@ Access: admin/admin
 
 Todo: automate the configuration of prometheus as a datasource. At this point must be manually added the datasource by choosing "Prometheus" and using as url: http://host.docker.internal:9090.
 
+In order to add the Docker Monitoring Dashboard, while logged in into Grafana, please import the json definition located in the `monitoring` directory, called `docker-dashboard-grafana.json`.
+
 ## CICD
 Defined in the Github/workflows/py-github-actions. 
 Requires a Docker hub account.
